@@ -110,7 +110,7 @@ camyu_protocol_parser_t* camyu_protocol_create(void* rx_buffer,
  */
 static void frame_info_update(protocol_parser_t* parser) {
     camyu_protocol_parser_t* cp = (camyu_protocol_parser_t*)parser;
-    ftf_t* ftf = &cp->pri.current_frame_info.tft_value;
+    const ftf_t* ftf = &cp->pri.current_frame_info.tft_value;
 
     cp->pri.current_frame_info.opcode      = (Opcode_type_t)ftf->opcode;
     cp->pri.current_frame_info.verify_en   = (bool)ftf->bcccode;
@@ -196,7 +196,7 @@ static camyu_error_t camyu_parse_data_internal(protocol_parser_t* parser,
         break;
 
     case CAMYU_PARSER_STATE_WAIT_TFT: {
-        ftf_t* ftf = (ftf_t*)&byte;
+        const ftf_t* ftf = (const ftf_t*)&byte;
         if (ftf->opcode > PCTOCAMERA_READ) {
             cp->pri.stats.header_errors++;
             err = CAMYU_ERR_INVALID_HEADER;

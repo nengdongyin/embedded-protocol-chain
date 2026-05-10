@@ -380,7 +380,7 @@ uint8_t* protocol_parser_get_tx_data(protocol_parser_t* parser, uint32_t* len);
  * @param parser  解析器实例
  * @param out     [out] 接收统计信息副本
  */
-void protocol_parser_get_stats(protocol_parser_t* parser, parser_stats_t* out);
+void protocol_parser_get_stats(const protocol_parser_t* parser, parser_stats_t* out);
 
 /**
  * @brief  重置解析器统计信息为零

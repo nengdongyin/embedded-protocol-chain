@@ -437,7 +437,7 @@ uint8_t* protocol_parser_get_tx_data(protocol_parser_t* parser, uint32_t* len) {
     return parser->tx.buffer;
 }
 
-void protocol_parser_get_stats(protocol_parser_t* parser, parser_stats_t* out) {
+void protocol_parser_get_stats(const protocol_parser_t* parser, parser_stats_t* out) {
     if (parser && out) {
         *out = parser->stats;
     }
